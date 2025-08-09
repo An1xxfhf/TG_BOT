@@ -1,8 +1,8 @@
-from sqlalchemy import ForeignKey, String, BigInteger,Date,Boolean
+from sqlalchemy import ForeignKey, String, BigInteger,Date
 from datetime import date
-from sqlalchemy.orm import Mapped, mapped_column, DeclarativeBase, relationship
+from sqlalchemy.orm import Mapped, mapped_column, DeclarativeBase
 from sqlalchemy.ext.asyncio import AsyncAttrs, async_sessionmaker, create_async_engine
-from app.config import settings
+from config import settings
 from typing import Annotated
 
 engine = create_async_engine(url=settings.DB_URL_ASP,

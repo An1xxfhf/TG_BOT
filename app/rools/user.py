@@ -6,7 +6,7 @@ from aiogram.enums import ChatAction
 import asyncio
 import app.keyboards as kb
 from app.states import State
-from app.generation import gpt_text
+
 from app.DB.requests import set_user,set_bir,get_birthdays,set_title,get_title
 import aiohttp
 from dotenv import load_dotenv

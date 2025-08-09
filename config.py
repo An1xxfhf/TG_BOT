@@ -8,7 +8,7 @@ class Settings(BaseSettings):
     DB_PASS: str
     DB_NAME: str
 
-    model_config = SettingsConfigDict(env_file="../.env")
+    model_config = SettingsConfigDict(env_file=".env")
 
     @property
     def DB_URL_ASP(self):
