@@ -148,23 +148,6 @@ async def get_weather(message: Message, state: FSMContext):
     finally:
         await state.clear()
 
-@user.message(F.text == 'Чат с искусственным интелектом')
-async def aichat(message:Message,state: FSMContext):
-    await message.bot.send_chat_action(chat_id=message.from_user.id, action=ChatAction.TYPING)
-    await asyncio.sleep(1)
-    await message.answer('Запрос:')
-    await state.set_state(State.AIchat)
-
-@user.message(State.wait)
-async def stop_req(message: Message):
-    await message.answer('Подождите, ваш запрос обрабатывается')
-
-@user.message(State.AIchat)
-async def chat_answer(message: Message,state: FSMContext):
-    await state.set_state(State.wait)
-    respones=await gpt_text(message.text)
-    await message.answer(respones,parse_mode='Markdown')
-    await state.clear()
 
 @user.message(Command('birthday'))
 async def Birthday(message:Message):

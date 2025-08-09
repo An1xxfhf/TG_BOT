@@ -7,6 +7,7 @@ from aiogram.enums import ChatAction
 import asyncio
 from app.DB.requests import get_users
 from app.DB.requests import set_user
+from app.keyboards import main
 admin = Router()
 
 
@@ -23,7 +24,7 @@ async def start_admin(message:Message):
     )
     await asyncio.sleep(1)
     await message.answer('Приветствую админ👋\n'
-                   'Чтобы посмотреть список доступных команд введи <b>/help</b>',parse_mode='HTML')
+                   'Чтобы посмотреть список доступных команд введи <b>/help</b>',parse_mode='HTML',reply_markup=main)
 
 @admin.message(Admin(),Command('help'))
 async def admin_help(message:Message):
