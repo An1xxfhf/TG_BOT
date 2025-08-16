@@ -2,7 +2,7 @@ from sqlalchemy import ForeignKey, String, BigInteger,Date
 from datetime import date
 from sqlalchemy.orm import Mapped, mapped_column, DeclarativeBase
 from sqlalchemy.ext.asyncio import AsyncAttrs, async_sessionmaker, create_async_engine
-from config import settings
+from app.DB.config import settings
 from typing import Annotated
 
 engine = create_async_engine(url=settings.DB_URL_ASP,
